@@ -11,7 +11,8 @@
     "registry": "https://nexus.k15t.com/content/repositories/npm-releases-public/"
   },
   "files": [
-    "build/"
+    "build/",
+    "index.js"
   ],
   "keywords": [
     "gulp",

@@ -4,13 +4,13 @@ var jscs = require('gulp-jscs');
 var livereload = require('gulp-livereload');
 var plumber = require('gulp-plumber');
 var utils = require('../utils');
-var config = require('../config');
+var config = require('../../../index');
 
 gulp.task('dev:scripts', function() {
-    gulp.src(config.paths.app.scripts, {'base': 'src'})
+    gulp.src(config.getConfig().paths.app.scripts, {'base': 'src'})
         .pipe(plumber())
         .pipe(jscs({
-            configPath: config.jscsrc
+            configPath: config.getConfig().jscsrc
         }))
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
@@ -20,7 +20,7 @@ gulp.task('dev:scripts', function() {
         .pipe(gulp.dest(utils.devDir()))
         .pipe(livereload());
     // TODO: make sure to reload the whole page: livereload.changed(indexPath);
-    gulp.src(config.paths.lib.scripts.dev, {'base': '.'})
+    gulp.src(config.getConfig().paths.lib.scripts.dev, {'base': '.'})
         .pipe(gulp.dest(utils.devDir()));
 });
 

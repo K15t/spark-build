@@ -1,5 +1,5 @@
 var fs = require('fs');
-var config = require('./config');
+var config = require('../../index');
 
 // ---------------------------------------------------------------------------------------------
 // Overall utility function for dev and dist build execution
@@ -10,9 +10,9 @@ exports.isDir = function(path) {
 };
 
 exports.getDistDir = function() {
-    return "../../../../target/classes/" + config.resourcePath;
+    return "../../../../target/classes/" + config.getConfig().resourcePath;
 };
 
 exports.devDir = function() {
-    return "../../../../target/spark/" + config.resourcePath;
+    return "../../../../target/spark/" + config.getConfig().resourcePath;
 };

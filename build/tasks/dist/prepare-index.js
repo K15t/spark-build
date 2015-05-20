@@ -2,12 +2,12 @@ var gulp = require('gulp');
 var inject = require('gulp-inject');
 var utils = require('../utils');
 var path = require('path');
-var config = require('../config');
+var config = require('../../../index');
 var join = path.join;
 
 gulp.task('dist:index', function() {
-    gulp.src(config.paths.app.index, {'base': 'src'})
-        .pipe(inject(gulp.src(config.paths.lib.styles.prod, {'read': false}), {
+    gulp.src(config.getConfig().paths.app.index, {'base': 'src'})
+        .pipe(inject(gulp.src(config.getConfig().paths.lib.styles.prod, {'read': false}), {
             'ignorePath': 'bower_components',
             'addRootSlash': false,
             name: 'lib'
