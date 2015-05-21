@@ -10,7 +10,7 @@ More Information & full documentation: http://www.k15t.com/display/SPARK
 ## Installing
 
 ```
-$ npm install -g spark-tools
+$ npm install spark-build
 ```
 
 
