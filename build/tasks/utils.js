@@ -10,9 +10,9 @@ exports.isDir = function(path) {
 };
 
 exports.getDistDir = function() {
-    return "../../../../target/classes/" + config.getConfig().resourcePath;
+    return config.getConfig().buildTargetDir + "/classes/" + config.getConfig().resourcePath;
 };
 
 exports.devDir = function() {
-    return "../../../../target/spark/" + config.getConfig().resourcePath;
+    return config.getConfig().buildTargetDir + "/spark/" + config.getConfig().resourcePath;
 };

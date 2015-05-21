@@ -7,9 +7,6 @@
     "type": "git",
     "url": "https://github.com/K15t/spark-build.git"
   },
-  "publishConfig": {
-    "registry": "https://nexus.k15t.com/content/repositories/npm-releases-public/"
-  },
   "files": [
     "build/",
     "index.js"

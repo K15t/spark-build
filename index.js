@@ -9,6 +9,7 @@ module.exports = function(opts) {
     //     customized configuration. The below list of attributes
     //     can be customized in the project gulp file if needed.
     extendedConfig = extend({
+        buildTargetDir: '../../../../target',
         buildProjectRoot: __dirname,
         karmaPort: '9876',
         karmaConfigFile: __dirname + '/build/karma.conf.js',
