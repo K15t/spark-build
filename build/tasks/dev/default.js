@@ -1,3 +1,5 @@
 var gulp = require('gulp');
 
-gulp.task('dev:default', ['dev:watch']);
+module.exports = function() {
+    gulp.task('dev:default', ['dev:watch']);
+};

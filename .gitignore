@@ -1,2 +1,4 @@
 *.iml
 .idea
+example.js
+node_modules/
