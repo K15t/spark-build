@@ -1,10 +1,11 @@
 var gulp = require('gulp');
 var karmaRunner = require('karma').runner;
-var config = require('../../../index');
 
-gulp.task('dev:tests', function() {
-    karmaRunner.run({port: config.getConfig().karmaPort}, function(exitCode) {
-        //do nothing
+module.exports = function(config) {
+    gulp.task('dev:tests', function() {
+        karmaRunner.run({port: config.karmaPort}, function(exitCode) {
+            //do nothing
+        });
+        //return null;
     });
-    //return null;
-});
+};
