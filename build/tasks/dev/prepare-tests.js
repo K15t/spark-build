@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var rename = require('gulp-rename');
 var inject = require('gulp-inject');
 var series = require('stream-series');
+var path = require('path');
 
 module.exports = function(config) {
     gulp.task('dev:prepare-unit', function(done) {
@@ -21,7 +22,7 @@ module.exports = function(config) {
                     return '  "' + filepath.substring(1) + '"' + (i + 1 < length ? ',' : '');
                 }
             }))
-            .pipe(rename(config.karmaConfigFile))
-            .pipe(gulp.dest('.'));
+            .pipe(rename(path.basename(config.karmaConfigFile)))
+            .pipe(gulp.dest(path.dirname(config.karmaConfigFile)));
     });
 };

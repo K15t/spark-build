@@ -24,9 +24,11 @@ module.exports = function(config) {
     });
 
     gulp.task('dev:test-scripts', function() {
-        gulp.src(paths.app.tests, {'base': 'src'})
+        gulp.src(config.paths.app.tests, {'base': 'src'})
             //.pipe(plumber())
-            .pipe(jscs())
+            .pipe(jscs({
+                configPath: config.jscsrc
+            }))
             .pipe(jshint())
             .pipe(jshint.reporter('default'))
             .pipe(jshint.reporter('fail').on('error', function(err) {

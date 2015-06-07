@@ -24,7 +24,7 @@ module.exports = function(opts) {
         buildTargetDir: '../../../../target',
         buildProjectRoot: __dirname,
         karmaPort: '9876',
-        karmaConfigFile: path.join(__dirname, '/build/karma.conf.js'),
+        karmaConfigFile: path.join(process.cwd(), 'karma.conf.js'),
         karmaConfigFileTemplate: path.join(__dirname, '/build/karma.conf.tpl.js'),
         jscsrc: path.join(__dirname, '/build/.jscsrc'),
         distDir: path.join('../../../../target/classes', opts.resourcePath || ''),
