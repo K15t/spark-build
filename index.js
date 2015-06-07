@@ -3,13 +3,15 @@ var gutil = require('gulp-util');
 var stringify = require('stringify-object');
 var requireDir = require('require-dir');
 var path = require('path');
+var gulp = require('gulp');
 
 // require all tasks and invoke them with a config
 var initializeTasks = function(dir, config) {
     var tasks = requireDir(dir);
-    Object.keys(tasks).forEach(function(path) {
-        if(typeof tasks[path] === 'function') {
-            tasks[path](config);
+    Object.keys(tasks).forEach(function(p) {
+        if(typeof tasks[p] === 'function') {
+            gutil.log("loading task", path.join(dir, p));
+            tasks[p](config);
         }
     });
 };
@@ -41,10 +43,19 @@ module.exports = function(opts) {
     initializeTasks('./build/tasks', extendedConfig);
     initializeTasks('./build/tasks/dev', extendedConfig);
     initializeTasks('./build/tasks/dist', extendedConfig);
+    gutil.log("-------------------------------------------------------------------");
 
     return {
-      getConfig: function() {
-        return extendedConfig;
-      }
+
+        getConfig: function() {
+            return extendedConfig;
+        },
+
+        // this can be useful when pulling in
+        // spark-build with npm-link
+        getGulp: function() {
+            return gulp;
+        }
+
     };
 };
