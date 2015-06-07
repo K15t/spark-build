@@ -22,7 +22,6 @@ module.exports = function(opts) {
     //     can be customized in the project gulp file if needed.
     var extendedConfig = extend({
         buildTargetDir: '../../../../target',
-        buildProjectRoot: __dirname,
         karmaPort: '9876',
         karmaConfigFile: path.join(process.cwd(), 'karma.conf.js'),
         karmaConfigFileTemplate: path.join(__dirname, '/build/karma.conf.tpl.js'),
