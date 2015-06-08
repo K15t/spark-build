@@ -1,6 +1,6 @@
 {
   "name": "spark-build",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Base build script including validation and test support",
   "main": "index.js",
   "repository": {
