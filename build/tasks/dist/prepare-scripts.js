@@ -9,6 +9,7 @@ var join = path.join;
 
 module.exports = function(config) {
     gulp.task('dist:scripts', function() {
+
         gulp.src(config.paths.app.scripts, {'base': 'src'})
             .pipe(jscs({
                 configPath: config.jscsrc
@@ -19,6 +20,7 @@ module.exports = function(config) {
             .pipe(jshint())
             .pipe(jshint.reporter('default'))
             .pipe(jshint.reporter('fail')); // fail build if jshint finds problems
+
         //now we add the libs and partials for the minification
         return gulp.src(config.paths.lib.scripts.prod.concat(
             config.paths.app.scripts).concat(join(config.distDir, '/partials.js')), {'base': 'src'})

@@ -8,31 +8,34 @@ module.exports = function(config) {
     gulp.task('dev:scripts', function() {
         gulp.src(config.paths.app.scripts, {'base': 'src'})
             .pipe(plumber())
+            .pipe(gulp.dest(config.devDir))
+            .pipe(livereload())
             .pipe(jscs({
                 configPath: config.jscsrc
             }))
+            .on('error', function(err) {
+                console.log('JSCS error detected... aborting build process\n' + err.message);
+            })
             .pipe(jshint())
             .pipe(jshint.reporter('default'))
-            .pipe(jshint.reporter('fail').on('error', function(err) {
-                console.log(err)
-            })) // fail build if jshint finds problems
-            .pipe(gulp.dest(config.devDir))
-            .pipe(livereload());
-        // TODO: make sure to reload the whole page: livereload.changed(indexPath);
+            .pipe(jshint.reporter('fail')); // fail build if jshint finds problems
+
         gulp.src(config.paths.lib.scripts.dev, {'base': '.'})
             .pipe(gulp.dest(config.devDir));
     });
 
     gulp.task('dev:test-scripts', function() {
         gulp.src(config.paths.app.tests, {'base': 'src'})
-            //.pipe(plumber())
+            .pipe(plumber())
             .pipe(jscs({
                 configPath: config.jscsrc
             }))
+            .on('error', function(err) {
+                console.log('JSCS error detected... aborting build process\n' + err.message);
+
+            })
             .pipe(jshint())
             .pipe(jshint.reporter('default'))
-            .pipe(jshint.reporter('fail').on('error', function(err) {
-                console.log(err)
-            })); // fail build if jshint finds problems
+            .pipe(jshint.reporter('fail')); // fail build if jshint finds problems
     });
 };
