@@ -47,12 +47,17 @@ sparkBuild({
             'scripts':  [],
             'partials': [],
             'assets':   [],
-            'tests':    []
+            'tests':    [],
+            'libs':     []
         }
     }
 });
 
 ```
+
+The configuration paths.app.libs is optional if you don't have multiple web applications in one project and no library you want
+to share between them, otherwise enter the path to the library you want to share. The whole directory will be copied to the current
+web application under app/libs.
 
 After you added the required configuration you can start the gulp build as usual:
 
