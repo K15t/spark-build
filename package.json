@@ -1,6 +1,6 @@
 {
   "name": "spark-build",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Base build script including validation and test support",
   "main": "index.js",
   "repository": {
@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/K15t/spark-build",
   "dependencies": {
-    "is-directory": "^0.3.0",
     "bower-license": "0.2.6",
     "del": "1.1.1",
     "gulp": "3.8.11",
@@ -34,6 +33,7 @@
     "gulp-concat": "2.4.3",
     "gulp-copy": "0.0.2",
     "gulp-debug": "2.0.0",
+    "gulp-filter": "4.0.0",
     "gulp-inject": "1.1.1",
     "gulp-jasmine": "2.0.0",
     "gulp-jscs": "1.4.0",
@@ -45,6 +45,7 @@
     "gulp-rename": "1.2.0",
     "gulp-uglify": "1.0.2",
     "gulp-util": "3.0.4",
+    "is-directory": "0.3.0",
     "karma": "0.12.31",
     "karma-jasmine": "0.3.5",
     "karma-phantomjs-launcher": "0.1.4",

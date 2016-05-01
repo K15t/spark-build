@@ -6,8 +6,6 @@ var join = path.join;
 
 module.exports = function(config) {
     gulp.task('dev:partials', function() {
-        //gulp.src(paths.app.partials, {'base': 'src'})
-        //  .pipe(gulp.dest(devDir()));
         return gulp.src(config.paths.app.partials)
             .pipe(ngTemplates({
                 base: function(file) {

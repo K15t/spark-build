@@ -24,7 +24,7 @@ module.exports = function(config) {
         }
 
         // ... copy all to the local project libs folder to ensure the source code of the will be checked etc. ('libs/lib-folder-name')
-        gulp.src(config.paths.app.libs,{'base': '.'})
+        return gulp.src(config.paths.app.libs,{'base': '.'})
             .pipe(gulp.dest(config.rootDir + '/src/libs/dummy'))
             .pipe(livereload())
             .on('error', function(err){
