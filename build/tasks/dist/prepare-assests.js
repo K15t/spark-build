@@ -15,11 +15,11 @@ module.exports = function(config) {
         //     common root assets folder.
         if (config.paths.app.libs) {
             gulp.src(config.paths.app.assets, {'cwd': '.'})
-                .pipe(onlyLibs)
-                .pipe(gulp.dest(config.distDir))
-                .on('error', function(err){
-                    new gutil.PluginError('Copy assets', err, {showStack: true});
-                });
+            .pipe(onlyLibs)
+            .pipe(gulp.dest(join(config.distDir, '/assets')))
+            .on('error', function(err){
+                new gutil.PluginError('Copy assets', err, {showStack: true});
+            });
         }
 
         return gulp.src(config.paths.app.assets, {'base': 'src'})

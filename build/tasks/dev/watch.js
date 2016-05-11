@@ -15,7 +15,10 @@ module.exports = function(config) {
                 });
                 livereload.listen();
                 gulp.watch(config.paths.app.index, ['dev:index']);
-                gulp.watch(config.paths.app.libs, ['dev:copy-local-libs'], {'base': '.'});
+                gulp.watch(config.paths.app.libs).on('change', function(file) {
+                    gulp.src(file.path, {'base': '.'})
+                    .pipe(gulp.dest(config.rootDir + '/src/libs/dummy'))
+                });
                 gulp.watch(config.paths.app.scripts, ['dev:scripts', 'dev:tests']);
                 gulp.watch(config.paths.app.tests, ['dev:test-scripts', 'dev:tests']);
                 gulp.watch(config.paths.app.styles, ['dev:styles']);
