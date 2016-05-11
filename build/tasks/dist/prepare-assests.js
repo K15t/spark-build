@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var filter = require('gulp-filter');
+var path = require('path');
+var join = path.join;
 
 module.exports = function(config) {
     gulp.task('dist:assets', function() {
