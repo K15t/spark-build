@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var inject = require('gulp-inject');
 var path = require('path');
+var jsonTransform = require('../../utils/json-transform');
 var join = path.join;
 
 module.exports = function(config) {
@@ -28,6 +29,11 @@ module.exports = function(config) {
                     return '<script data-spark-injected src="' + filepath + '"></script>';
                 }
             }))
+            .pipe(inject(gulp.src(join(config.distDir, '/all.js'), {'read': false}),
+                jsonTransform('buildSrc', {
+                    'ignorePath': config.distDir,
+                    'addRootSlash': false
+                })))
             .pipe(gulp.dest(config.distDir))
     });
 };
