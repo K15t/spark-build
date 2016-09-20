@@ -3,7 +3,7 @@ var inject = require('gulp-inject');
 var livereload = require('gulp-livereload');
 var plumber = require('gulp-plumber');
 var path = require('path');
-var jsonTransform = require('../../utils/jsonTransform');
+var jsonTransform = require('../../utils/json-transform');
 var join = path.join;
 
 module.exports = function(config) {

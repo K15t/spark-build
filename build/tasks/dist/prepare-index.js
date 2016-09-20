@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var inject = require('gulp-inject');
 var path = require('path');
-var jsonTransform = require('../../utils/jsonTransform');
+var jsonTransform = require('../../utils/json-transform');
 var join = path.join;
 
 module.exports = function(config) {
