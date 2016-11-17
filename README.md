@@ -82,6 +82,7 @@ Following configurations can be customized as well if needed:
 - karmaConfigFileTemplate (default configuration under build)
 - jscsrc (Rule set to enforce best practices for java script, default configuration under build)
 
+NOTE: The usage of Karam requires to add the desired dependencies to your project package.json!
 
 ## Tips
 
