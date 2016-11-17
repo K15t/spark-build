@@ -8,7 +8,7 @@ module.exports = function(config) {
             .pipe(concat('all.css'))
             .pipe(minifyCSS())
             .pipe(gulp.dest(config.distDir));
-        return gulp.src(config.paths.lib.styles.prod, {'base': 'bower_components'})
+        return gulp.src(config.paths.lib.styles.prod, {'base': 'node_modules'})
             .pipe(gulp.dest(config.distDir));
     });
 };

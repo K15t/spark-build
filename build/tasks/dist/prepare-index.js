@@ -8,7 +8,7 @@ module.exports = function(config) {
     gulp.task('dist:index', function() {
         gulp.src(config.paths.app.index, {'base': 'src'})
             .pipe(inject(gulp.src(config.paths.lib.styles.prod, {'read': false}), {
-                'ignorePath': 'bower_components',
+                'ignorePath': 'node_modules',
                 'addRootSlash': false,
                 name: 'lib',
                 'transform': function(filepath) {
