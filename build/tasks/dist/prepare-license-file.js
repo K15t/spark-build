@@ -20,7 +20,7 @@ module.exports = function(config) {
                     throw err;
                 } else {
                     // ... copy existing license files to the desired target directoy
-                    checker.asFiles(json, config.buildTargetDir + defaults.licenseChecker.licenseFinalDestDir);
+                    checker.asFiles(json, config.buildTargetDir + '/classes/' + defaults.licenseChecker.licenseFinalDestDir);
                     // ... consolidate json e.g. remove all entries from K15t and update license file info to the new location
                     Object.keys(json).forEach(function(moduleName) {
                         if (json[moduleName].publisher && json[moduleName].publisher.toLowerCase() === 'k15t') {

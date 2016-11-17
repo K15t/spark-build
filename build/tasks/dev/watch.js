@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var livereload = require('gulp-livereload');
-var karma = require('karma').server;
 
 module.exports = function(config) {
     gulp.task('dev:watch', ['dev:clean', 'dev:copy-local-libs'], function() {
@@ -9,10 +8,6 @@ module.exports = function(config) {
             ['dev:scripts', 'dev:partials', 'dev:styles', 'dev:assets'],
             'dev:index',
             function() {
-                karma.start({
-                    'configFile': config.karmaConfigFile,
-                    'singleRun': false
-                });
                 livereload.listen();
                 gulp.watch(config.paths.app.index, ['dev:index']);
                 gulp.watch(config.paths.app.libs).on('change', function(file) {
