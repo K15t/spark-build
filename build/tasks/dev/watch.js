@@ -6,7 +6,7 @@ var karma = require('karma').server;
 module.exports = function(config) {
     gulp.task('dev:watch', ['dev:clean', 'dev:copy-local-libs'], function() {
         runSequence(
-            ['dev:prepare-unit', 'dev:scripts', 'dev:partials', 'dev:styles', 'dev:assets'],
+            ['dev:scripts', 'dev:partials', 'dev:styles', 'dev:assets'],
             'dev:index',
             function() {
                 karma.start({
@@ -19,8 +19,6 @@ module.exports = function(config) {
                     gulp.src(file.path, {'base': '.'})
                     .pipe(gulp.dest(config.rootDir + '/src/libs/dummy'))
                 });
-                gulp.watch(config.paths.app.scripts, ['dev:scripts', 'dev:tests']);
-                gulp.watch(config.paths.app.tests, ['dev:test-scripts', 'dev:tests']);
                 gulp.watch(config.paths.app.styles, ['dev:styles']);
                 gulp.watch(config.paths.app.partials, ['dev:partials']);
                 gulp.watch(config.paths.app.assets, ['dev:assets']);
