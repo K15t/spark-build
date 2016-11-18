@@ -8,7 +8,7 @@ module.exports = function(config) {
     gulp.task('dist:index', function() {
         gulp.src(config.paths.app.index, {'base': 'src'})
             .pipe(inject(gulp.src(config.paths.lib.styles.prod, {'read': false}), {
-                'ignorePath': 'node_modules',
+                'ignorePath': ['./', '..', 'node_modules', config.nodeModulesDir],
                 'addRootSlash': false,
                 name: 'lib',
                 'transform': function(filepath) {
