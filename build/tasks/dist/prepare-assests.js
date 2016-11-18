@@ -10,7 +10,7 @@ module.exports = function(config) {
         var ignoreLibs = filter(['src/assets/**/*']);
         var onlyLibs = filter(['src/libs/**/*']);
 
-        gulp.src(config.paths.lib.assets, {'base': 'node_modules'})
+        gulp.src(config.paths.lib.assets, {'base': config.nodeModulesDir})
             .pipe(gulp.dest(config.distDir));
 
         // ... if local libraries defined we copy the assets of the libs to the

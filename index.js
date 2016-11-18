@@ -29,7 +29,8 @@ module.exports = function(opts) {
             karmaConfigFileTemplate: path.join(__dirname, '/build/karma.conf.tpl.js'),
             jscsrc: path.join(__dirname, '/build/.jscsrc'),
             distDir: path.join('../../../../target/classes', opts.resourcePath || ''),
-            devDir: path.join('../../../../target/spark-dev-builds', opts.resourcePath || '')
+            devDir: path.join('../../../../target/spark-dev-builds', opts.resourcePath || ''),
+            nodeModulesDir: 'node_modules'
         },
         opts);
 
