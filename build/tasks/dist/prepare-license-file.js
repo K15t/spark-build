@@ -6,13 +6,17 @@ var extend = require('node.extend');
 module.exports = function(config) {
     gulp.task('dist:licenses', function() {
 
-        var defaults = extend({
-            licenseChecker: {
-                start: './',
-                production: true,
-                licenseFinalDestDir: '/META-INF/LICENSES'
-            }
-        }, config);
+        var defaults = extend(
+            true,
+            {
+                licenseChecker: {
+                    start: './',
+                    production: true,
+                    licenseFinalDestDir: '/META-INF/LICENSES'
+                }
+            },
+            config
+        );
 
         checker.init(defaults.licenseChecker,
             function(err, json) {
