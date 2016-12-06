@@ -3,6 +3,7 @@ var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 var livereload = require('gulp-livereload');
 var plumber = require('gulp-plumber');
+var path = require('path');
 
 module.exports = function(config) {
     gulp.task('dev:scripts', function() {
@@ -21,7 +22,7 @@ module.exports = function(config) {
             .pipe(jshint.reporter('fail')); // fail build if jshint finds problems
 
         gulp.src(config.paths.lib.scripts.dev, {'base': '.'})
-            .pipe(gulp.dest(config.devDir));
+            .pipe(gulp.dest(path.join(config.devDir, config.moduleName)));
     });
 
     gulp.task('dev:test-scripts', function() {

@@ -14,6 +14,8 @@ module.exports = function(config) {
                     gulp.src(file.path, {'base': '.'})
                     .pipe(gulp.dest(config.rootDir + '/src/libs/dummy'))
                 });
+                gulp.watch(config.paths.app.scripts, ['dev:scripts']);
+                gulp.watch(config.paths.app.tests, ['dev:test-scripts']);
                 gulp.watch(config.paths.app.styles, ['dev:styles']);
                 gulp.watch(config.paths.app.partials, ['dev:partials']);
                 gulp.watch(config.paths.app.assets, ['dev:assets']);
