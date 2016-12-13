@@ -16,7 +16,7 @@ module.exports = function(config) {
             .pipe(inject(gulp.src(config.paths.app.scripts, {'read': false}), {'ignorePath': 'src', 'addRootSlash': false}))
             .pipe(inject(gulp.src([join(config.devDir, 'app/js/partials.js')], {'read': false}), { 'ignorePath': config.devDir, 'addRootSlash': false, 'name': 'partials'}))
 
-            .pipe(inject(gulp.src(config.paths.lib.scripts.dev, {'read': false}), jsonTransform('libSrc', {'ignorePath': '', 'addRootSlash': false})))
+            .pipe(inject(gulp.src(config.paths.lib.scripts.dev, {'read': false}), jsonTransform('libSrc', {'ignorePath': ['..', '.'], 'addRootSlash': false})))
             .pipe(inject(gulp.src(config.paths.app.scripts, {'read': false}), jsonTransform('appSrc', {'ignorePath': 'src', 'addRootSlash': false})))
             .pipe(inject(gulp.src([join(config.devDir, 'app/js/partials.js')], {'read': false}), jsonTransform('partialSrc', {'ignorePath': config.devDir, 'addRootSlash': false})))
 
